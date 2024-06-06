@@ -19,7 +19,7 @@ interface CustomCommand {
     default: {
         data: {
             name: string;
-            toJSON(): string; // toJSON メソッドを追加
+            toJSON(): string;
         };
         execute(interaction: CommandInteraction): void;
     };
