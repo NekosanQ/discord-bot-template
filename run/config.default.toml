@@ -1,0 +1,8 @@
+# クライアントID
+clientId = ""
+# 開発用サーバーID
+developerGuildId = ""
+# 使用するサーバーID
+generalGuildId = ""
+# BOTのカラーコード
+botColor = ""
