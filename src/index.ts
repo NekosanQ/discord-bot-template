@@ -45,8 +45,8 @@ export class Bot {
             this.registerSlashCommands();
         });
     
-        this.client.on('warn', (info) => console.log(info));
-        this.client.on('error', console.error);
+        this.client.on('warn', (info) => logger.info(info));
+        this.client.on('error', logger.error);
     
         this.onInteractionCreate();
     }
