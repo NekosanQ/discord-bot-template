@@ -2,7 +2,7 @@
   "name": "discord-bot-template",
   "version": "1.0.0",
   "description": "TypeScript templates for development in Discord.js",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "ts-node src/index.ts",
     "start": "node dist/index.js",
