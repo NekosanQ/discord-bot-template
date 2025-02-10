@@ -9,8 +9,7 @@ import { exit } from 'process';
  */
 export interface Config {
     clientId: string;
-    developerGuildId: string;
-    generalGuildId: string;
+    guildId: string;
     botColor: string;
 }
 

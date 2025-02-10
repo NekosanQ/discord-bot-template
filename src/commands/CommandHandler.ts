@@ -1,8 +1,8 @@
 import { ApplicationCommandDataResolvable, Interaction } from 'discord.js';
 import { client } from '../index.js';
-import { config } from '../utils/config.js';
 import { logger } from '../utils/log.js';
 import { InteractionBase } from './base/interaction_base.js';
+import { config } from '../utils/config.js';
 
 /**
  * コマンドハンドラー
@@ -18,8 +18,8 @@ export default class CommandHandler {
      * コマンドを登録します
      */
     async registerCommands(): Promise<void> {
-        // イベント管理者用のコマンドを登録
-        const guild = await client.guilds.fetch(config.developerGuildId);
+        // サーバーを取得
+        const guild = await client.guilds.fetch(config.guildId);
 
         // 登録するコマンドリスト
         const applicationCommands: ApplicationCommandDataResolvable[] = [];
