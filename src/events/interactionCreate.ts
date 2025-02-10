@@ -9,7 +9,7 @@ import { commandHandler } from '..';
 class InteractionCreateEvent extends EventBase<'interactionCreate'> {
     readonly eventName = 'interactionCreate' as const;
 
-    async listener(interaction: Interaction) {
+    listener = async (interaction: Interaction) => {
         try {
             await commandHandler.onInteractionCreate(interaction);
         } catch (error) {
