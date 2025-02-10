@@ -6,7 +6,7 @@ log4js.configure({
     appenders: {
         file: {
             type: 'file',
-            filename: getWorkdirPath('bot.log')
+            filename: getWorkdirPath('bot.log'),
         },
         console: {
             type: 'console',
@@ -15,7 +15,7 @@ log4js.configure({
     categories: {
         default: {
             appenders: ['file', 'console'],
-            level: 'info'
+            level: 'info',
         },
     },
 });

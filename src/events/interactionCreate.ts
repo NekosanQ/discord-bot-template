@@ -1,30 +1,21 @@
-import { Events, Interaction } from 'discord.js';
+import { Interaction } from 'discord.js';
 import { logger } from '../utils/log';
+import { EventBase } from './base/event_base';
+import { commandHandler } from '..';
 
 /**
- * インタラクション処理
+ * インタラクションが作成されたときに実行されるイベント
  */
-export = {
-    name: Events.InteractionCreate,
-    async execute(interaction: Interaction): Promise<void> {
-        if (!interaction.isChatInputCommand()) return;
+class InteractionCreateEvent extends EventBase<'interactionCreate'> {
+    readonly eventName = 'interactionCreate' as const;
 
-        const command = interaction.client.commands.get(interaction.commandName);
-
-        if (!command) {
-            console.error(`失敗: コマンド ${interaction.commandName} が見つかりませんでした。`);
-            return;
-        }
-
+    async listener(interaction: Interaction) {
         try {
-            await command.execute(interaction);
+            await commandHandler.onInteractionCreate(interaction);
         } catch (error) {
-            logger.error(error);
-            if (interaction.replied || interaction.deferred) {
-                await interaction.followUp({ content: "失敗: コマンドの実行中にエラーが発生しました", ephemeral: true });
-            } else {
-                await interaction.reply({ content: "失敗: コマンドの実行中にエラーが発生しました", ephemeral: true });
-            }
+            logger.error('onInteractionCreate中にエラーが発生しました。', error);
         }
-    }
-};
+    };
+}
+
+export default new InteractionCreateEvent();

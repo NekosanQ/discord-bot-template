@@ -1,7 +1,7 @@
-import { join } from "path";
+import { join } from 'path';
 
 /** 作業ディレクトリへのパス */
-export const workdir = process.env.APP_BASEDIR ?? "run";
+export const workdir = process.env.APP_BASEDIR ?? 'run';
 
 /**
  * 作業ディレクトリからの相対パスを取得する
